@@ -9,12 +9,12 @@ class Node():
         self.is_nil = is_nil
 
     def __iter__(self):
-        if self.left.is_nil is not True:
+        if self.left.is_nil is False:
             yield from self.left.__iter__()
 
         yield self, self.value
 
-        if self.right.is_nil is not True:
+        if self.right.is_nil is False:
             yield from self.right.__iter__()
 
 
@@ -64,7 +64,7 @@ class BRTree():
             x = z.left
             self._RB_TRANSPLANT(z, z.left)
         else:
-            y = self._TREE_MINIMUM(z.right)
+            y, _ = self._TREE_MINIMUM(z.right)
             y_origin_color = y.color
             x = y.right
             if y.parent == z:

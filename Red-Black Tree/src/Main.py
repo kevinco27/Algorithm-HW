@@ -13,7 +13,7 @@ def main():
             oper = f.readline().strip('\n')
             values = [int(v) for v in f.readline().split(' ')]
             if oper == '1':
-                oper_text = "Insert: " + " ,".join([str(val) for val in values])
+                oper_text = "Insert: " + ", ".join([str(val) for val in values])
                 for val in values:
                     brtree.insert(int(val))
             elif oper == '2':
