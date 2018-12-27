@@ -1,0 +1,27 @@
+Insert: 12, 1, 9, 2, 0, 11, 7, 19, 4, 15, 18, 5, 14, 13, 10, 16, 6, 3, 8, 17
+key: 0 parent: 1 color: black 
+key: 1 parent: 4 color: red 
+key: 2 parent: 1 color: black 
+key: 3 parent: 2 color: red 
+key: 4 parent: 9 color: black 
+key: 5 parent: 6 color: black 
+key: 6 parent: 4 color: red 
+key: 7 parent: 6 color: black 
+key: 8 parent: 7 color: red 
+key: 9 parent:   color: black 
+key: 10 parent: 11 color: red 
+key: 11 parent: 12 color: black 
+key: 12 parent: 14 color: red 
+key: 13 parent: 12 color: black 
+key: 14 parent: 9 color: black 
+key: 15 parent: 16 color: red 
+key: 16 parent: 18 color: black 
+key: 17 parent: 16 color: red 
+key: 18 parent: 14 color: red 
+key: 19 parent: 18 color: black 
+Delete: 12 ,1 ,9 ,2 ,0 ,11 ,7 ,19 ,4 ,15 ,18 ,5 ,14 ,13 ,10
+key: 3 parent: 6 color: black 
+key: 6 parent: 16 color: red 
+key: 8 parent: 6 color: black 
+key: 16 parent:   color: black 
+key: 17 parent: 16 color: black 
