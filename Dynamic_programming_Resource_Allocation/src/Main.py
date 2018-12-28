@@ -1,4 +1,3 @@
-import numpy as np
 import os
 
 input_path = "./input.txt"
@@ -94,7 +93,7 @@ def main():
             elif len(tmp) > 1:
                 table.append([int(v) for v in tmp.split(' ')])
             elif tmp == '' and len(pre) > 1:
-                table = np.transpose(np.array(table))
+                table = list(zip(*table))
                 graph = mulStageGraph(table)
             elif len(tmp) == 1:
                 resource = int(tmp)
