@@ -68,41 +68,31 @@ def main():
         strings = f.read()
         strings = strings.split('\n')
 
-    split_idx = [-1]
     pre = None
-    table = []
-    for idx, tmp in enumerate(strings):
-        if pre == '' and len(tmp) > 1:
-            split_idx.append(idx - 1)
-        pre = tmp
-    split_idx.append(len(strings))
-
-    pre_idx = None
-    for idx in split_idx:
-        table = None
-        graph = None
-        if idx == -1:
-            pre_idx = idx
-            continue
-        pre = None
-        for i in range(pre_idx + 1, idx):
-            tmp = strings[i]
-            if len(tmp) > 1 and table is None:
+    table = None
+    graph = None
+    for tmp in strings:
+        tmp = tmp.split(' ')
+        if len(tmp) > 1:
+            if table is None:
                 table = []
-                table.append([int(v) for v in tmp.split(' ')])
-            elif len(tmp) > 1:
-                table.append([int(v) for v in tmp.split(' ')])
-            elif tmp == '' and len(pre) > 1:
+                table.append([int(v) for v in tmp])
+            elif pre[0] == '':
+                table = [[int(v) for v in tmp]]
+                graph = None
+            else:
+                table.append([int(v) for v in tmp])
+        elif len(tmp) == 1:
+            if tmp[0] == '' and len(pre) > 1:
                 table = list(zip(*table))
                 graph = mulStageGraph(table)
-            elif len(tmp) == 1:
-                resource = int(tmp)
+            elif tmp[0] != '':
+                resource = int(tmp[0])
                 sink = graph.build_graph(resource)
                 max_profit = sink.cumProfit
                 with open(output_path, 'a') as fout:
                     fout.write(str(max_profit) + '\n')
-            pre = tmp
-        pre_idx = idx
+        pre = tmp
 
 
 if __name__ == "__main__":
